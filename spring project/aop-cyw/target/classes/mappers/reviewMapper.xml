@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kpu.yunweb.mapper.ReviewMapper">
+ 	
+     <insert id="insert"> 
+   		insert into `tk_review` (id, booktitle, reviewtitle, content) values
+ 		(#{id}, #{booktitle}, #{reviewtitle}, #{content})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="ReviewVO">
+ 		select * from `tk_review` where id = #{id}
+     </select>
+ 	
+     <select id="selectAll" resultType="org.kpu.yunweb.domain.ReviewVO">
+     <![CDATA[ select * from `tk_review` order by `time` desc ]]> 
+     </select>
+ 	
+     <update id="update">
+	 	update `tk_review` set reviewtitle =#{reviewtitle}, content =#{content}
+		 	where id = #{id}
+     </update>
+ 
+    <delete id="delete">
+		delete from tk_review where id = #{id}
+    </delete>
+	
+</mapper>  

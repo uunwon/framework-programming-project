@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kpu.yunweb.mapper.UserMapper">
+ 	
+     <insert id="insert"> 
+   		insert into tk_user (id, passwd, username) values
+ 		(#{id}, #{passwd}, #{username})
+     </insert> 
+ 	
+     <select id="selectByid" resultType="String">
+ 		select username from tk_user where id = #{id}
+     </select>
+     
+      <select id="selectByid2" resultType="String">
+ 		select passwd from tk_user where id = #{id}
+     </select>
+ 	
+     <select id="selectAll" resultType="org.kpu.yunweb.domain.UserVO">
+     <![CDATA[ select * from tk_user ]]> 
+     </select>
+	
+</mapper>
